@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #fdfdfd;
+    color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container-oraculo {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #d4af37;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #7f8c8d;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #34495e;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.formulario-entrada {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campo-data {
+    width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #333;
+    appearance: none;
+    background-color: #fff;
+    position: relative;
+}
+
+.campo-data::after {
+    content: '\1F4C5';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d4af37;
+    pointer-events: none;
+    font-size: 1.5rem;
+}
+
+button {
+    padding: 15px 40px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #d4af37;
+    background-color: #ffffff;
+    border: 3px solid #d4af37;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #d4af37;
+    color: #ffffff;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.oculto {
+    display: none !important;
+}
+
+.saida-oraculo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+}
+
+.revelacao-cavaleiro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.container-efeito-raio {
+    position: relative;
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagem-cavaleiro {
+    max-width: 150px;
+    z-index: 2;
+    position: relative;
+}
+
+.container-efeito-raio::before, 
+.container-efeito-raio::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, rgba(255, 230, 0, 0.3) 20%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    filter: blur(10px);
+    animation: pulso-cosmico 2s ease-out infinite;
+}
+
+.container-efeito-raio::after {
+    animation-delay: 1s;
+}
+
+.raios-relampago {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.raio {
+    position: absolute;
+    background: linear-gradient(to right, transparent, rgba(255, 230, 0, 0.8), transparent);
+    width: 250%;
+    height: 3px;
+    animation: faisca-raio 1.5s ease-out infinite;
+    opacity: 0;
+}
+
+.raio:nth-child(1) { transform: rotate(0deg); animation-delay: 0s; }
+.raio:nth-child(2) { transform: rotate(45deg); animation-delay: 0.3s; }
+.raio:nth-child(3) { transform: rotate(90deg); animation-delay: 0.6s; }
+.raio:nth-child(4) { transform: rotate(135deg); animation-delay: 0.9s; }
+
+@keyframes pulso-cosmico {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes faisca-raio {
+    0% { transform: scaleX(0); opacity: 0; }
+    50% { transform: scaleX(1); opacity: 1; }
+    100% { transform: scaleX(0); opacity: 0; }
+}
+
+@keyframes fade-in {
+    to { opacity: 1; }
+}
+
+#botao-voltar {
+    border: 3px solid #ddd;
+    color: #7f8c8d;
+    margin-top: 0;
+}
+
+#botao-voltar:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: #ddd;
+}

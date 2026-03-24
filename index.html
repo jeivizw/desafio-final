@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oráculo de Ouro - Descubra o Seu Cavaleiro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container-oraculo">
+        <section class="entrada-oraculo">
+            <header>
+                <h1>ORÁCULO DE OURO</h1>
+                <p>Descubra qual Cavaleiro de Ouro protege o seu destino.</p>
+            </header>
+            <form class="formulario-entrada">
+                <label for="data-nascimento">A SUA DATA DE NASCIMENTO:</label>
+                <div class="campo-data">
+                    <input type="date" id="data-nascimento" required>
+                </div>
+                <button type="button" id="botao-elevar">ELEVAR COSMO</button>
+            </form>
+        </section>
+
+        <section class="saida-oraculo oculto">
+            <div class="revelacao-cavaleiro">
+                <div class="container-efeito-raio">
+                    <img id="imagem-cavaleiro" src="img/cavaleiro.png" alt="Silhueta do Cavaleiro">
+                </div>
+                <h2 id="nome-cavaleiro"></h2>
+                <p id="descricao-cavaleiro"></p>
+            </div>
+            <button type="button" id="botao-voltar">VOLTAR</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
